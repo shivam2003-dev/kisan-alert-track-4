@@ -1,3 +1,6 @@
+import { createRskTicket, generateAdvisory as buildAdvisory } from "./assets/js/advisory-engine.js";
+import { requestAiEnhancement } from "./assets/js/ai-client.js";
+
 const transcript = document.querySelector("#callTranscript");
 const callState = document.querySelector("#callState");
 const smsText = document.querySelector("#smsText");
@@ -42,71 +45,36 @@ function readForm() {
   };
 }
 
-function calculateScores(data) {
-  let redGram = 78;
-  let maize = 70;
-  let paddy = 58;
-
-  if (data.groundwater === "deep") {
-    redGram += 8;
-    maize -= 1;
-    paddy -= 22;
-  }
-  if (data.groundwater === "shallow") {
-    paddy += 10;
-    redGram -= 4;
-  }
-  if (data.nitrogen === "low") {
-    redGram += 4;
-    maize -= 4;
-    paddy -= 5;
-  }
-  if (data.ph > 7.5) {
-    redGram += 2;
-    paddy -= 4;
-  }
-  if (data.stage === "flowering") {
-    redGram += 1;
-    maize -= 2;
-  }
-
-  return {
-    redGram: Math.max(0, Math.min(99, redGram)),
-    maize: Math.max(0, Math.min(99, maize)),
-    paddy: Math.max(0, Math.min(99, paddy)),
-  };
-}
-
 function generateAdvisory(data) {
-  const scores = calculateScores(data);
-  const saving = Math.round(1900 * Math.max(1, data.acres));
-  const stageLabel = data.stage.charAt(0).toUpperCase() + data.stage.slice(1);
-  const gwLabel = data.groundwater === "deep" ? "deep / risky" : data.groundwater;
+  const advisory = buildAdvisory(data);
 
-  document.querySelector("#redScore").textContent = scores.redGram;
-  document.querySelector("#maizeScore").textContent = scores.maize;
-  document.querySelector("#paddyScore").textContent = scores.paddy;
-  document.querySelector("#chipNitrogen").textContent = `Soil N ${data.nitrogen}`;
-  document.querySelector("#chipPh").textContent = `pH ${data.ph.toFixed(1)}`;
-  document.querySelector("#chipGw").textContent = `GW ${gwLabel}`;
-  document.querySelector("#stageOut").textContent = stageLabel;
+  document.querySelector("#redScore").textContent = advisory.scores.redGram;
+  document.querySelector("#maizeScore").textContent = advisory.scores.maize;
+  document.querySelector("#paddyScore").textContent = advisory.scores.paddy;
+  document.querySelector("#chipNitrogen").textContent = `Soil N ${advisory.data.nitrogen}`;
+  document.querySelector("#chipPh").textContent = `pH ${advisory.data.ph.toFixed(1)}`;
+  document.querySelector("#chipGw").textContent = `GW ${advisory.gwLabel}`;
+  document.querySelector("#stageOut").textContent = advisory.stageLabel;
 
-  document.querySelector("#redReason").textContent = "Safe crop · low water demand · better under dry-spell risk";
-  document.querySelector("#maizeReason").textContent = "Balanced · sow only after 10 mm effective rain";
-  document.querySelector("#paddyReason").textContent =
-    data.groundwater === "deep" ? "Avoid · groundwater and seed-loss risk" : "Only if assured irrigation continues";
-  document.querySelector("#drySpellCopy").textContent =
-    `No effective rain is forecast for 7 days near ${data.village}. Delay sowing until the next 10 mm rain event and avoid about Rs ${saving.toLocaleString("en-IN")} in seed risk.`;
+  document.querySelector("#redReason").textContent = advisory.reasons.redGram;
+  document.querySelector("#maizeReason").textContent = advisory.reasons.maize;
+  document.querySelector("#paddyReason").textContent = advisory.reasons.paddy;
+  document.querySelector("#drySpellCopy").textContent = advisory.drySpell;
 
   setCallState("Generated", "done");
   transcript.innerHTML = `
-    <p><strong>Farmer:</strong> ${data.voiceNote}</p>
-    <p><strong>ASR slots:</strong> ${data.village} · ${data.acres} acres · ${stageLabel} · nitrogen ${data.nitrogen} · groundwater ${gwLabel}.</p>
+    <p><strong>Farmer:</strong> ${advisory.data.voiceNote}</p>
+    <p><strong>ASR slots:</strong> ${advisory.data.village} · ${advisory.data.acres} acres · ${advisory.stageLabel} · nitrogen ${advisory.data.nitrogen} · groundwater ${advisory.gwLabel}.</p>
     <p><strong>Engine:</strong> Soil Health Card + Sentinel-1 wetness + 7-day forecast + MSP price risk.</p>
-    <p><strong>Kisan Alert:</strong> ${data.name} garu, avoid paddy this week. After the next effective rain, sow red gram as the safe crop and maize only on the smaller balanced area.</p>
+    <p><strong>Kisan Alert:</strong> ${advisory.recommendation}</p>
   `;
-  smsText.textContent =
-    `${data.village}: Avoid paddy this week. Sow red gram first; maize only after 10 mm rain. Estimated seed-risk saving Rs ${saving.toLocaleString("en-IN")}.`;
+  smsText.textContent = advisory.sms;
+
+  requestAiEnhancement(advisory).then((ai) => {
+    if (ai.mode === "ai") {
+      transcript.insertAdjacentHTML("beforeend", `<p><strong>AI agronomist:</strong> ${escapeHtml(ai.text)}</p>`);
+    }
+  });
 }
 
 farmerForm.addEventListener("submit", (event) => {
@@ -135,12 +103,13 @@ function simulateCallBack() {
 
 document.querySelector("#sendPhoto").addEventListener("click", () => {
   const data = readForm();
+  const ticket = createRskTicket(data);
   ticketQueue.insertAdjacentHTML(
     "afterbegin",
     `<article class="ticket urgent">
       <span>New</span>
-      <strong>${data.name} · ${data.village} · ${data.stage} stage · confidence 39%</strong>
-      <p>Voice/photo note says "${data.voiceNote}". AI cannot separate nutrient stress from early pest damage, so RSK review is required.</p>
+      <strong>${ticket.id} · ${ticket.farmer} · ${ticket.village} · confidence ${ticket.confidence}%</strong>
+      <p>${ticket.summary}</p>
     </article>`,
   );
   queueCount.textContent = "3 open";
@@ -228,3 +197,12 @@ function drawSatellite() {
 
 drawSatellite();
 generateAdvisory(readForm());
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}

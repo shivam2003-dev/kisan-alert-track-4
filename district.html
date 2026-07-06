@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kisan Alert | District Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">KA</span><span><strong>Kisan Alert</strong><small>District intelligence</small></span></a>
+      <nav><a href="farmer.html">Farmer</a><a href="rsk.html">RSK</a><a href="district.html">District</a><a href="implementation.html">Plan</a></nav>
+    </header>
+    <main>
+      <section class="hero compact-hero">
+        <div><p class="eyebrow">Phase 2 · District map</p><h1>Dry-spell and crop-stress intelligence for officers.</h1><p class="lead">Village-level risk signals combine farmer reports, CHIRPS/IMD rainfall, Sentinel wetness and RSK ticket clusters.</p></div>
+      </section>
+      <section class="prototype">
+        <div class="prototype-grid">
+          <article class="panel map-panel"><p class="eyebrow">Village risk</p><h3>Satellite-style stress board</h3><canvas id="districtCanvas" width="760" height="470"></canvas></article>
+          <article class="panel"><p class="eyebrow">Signals</p><h3>Top villages</h3><div id="districtSignals" class="ticket-list"></div></article>
+          <article class="panel"><p class="eyebrow">Broadcast</p><h3>Preventive advisory</h3><p id="broadcastCopy" class="callout"></p></article>
+          <article class="panel"><p class="eyebrow">Impact</p><h3>Expected savings</h3><dl class="stats"><div><dt>Farmers</dt><dd>500</dd></div><div><dt>Seed risk</dt><dd>Rs 9.5L</dd></div><div><dt>RSKs</dt><dd>3</dd></div></dl></article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="assets/js/district-page.js"></script>
+  </body>
+</html>

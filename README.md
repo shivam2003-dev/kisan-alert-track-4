@@ -7,6 +7,10 @@ Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 ## What Is Included
 
 - Working static web-form prototype: `index.html`, `styles.css`, `app.js`
+- Multi-page product: `farmer.html`, `rsk.html`, `district.html`, `implementation.html`
+- Phase roadmap: `PHASE.md`
+- Shared advisory engine: `assets/js/advisory-engine.js`
+- Optional AI proxy scaffold: `server/ai-proxy.mjs`
 - Full solution blueprint: `SOLUTION.md`
 - Project write-up: `PROJECT_WRITEUP.md`
 - Architecture diagram: `assets/architecture.svg`
@@ -51,6 +55,18 @@ The site deploys through GitHub Actions:
 ```
 
 Every push to `main` uploads the static site artifact and publishes it to GitHub Pages.
+
+## Optional AI Proxy
+
+Do not put provider tokens in browser code. For local or Cloud Run use, set:
+
+```bash
+cp .env.example .env
+export OPENROUTER_API_KEY="your_server_side_key"
+node server/ai-proxy.mjs
+```
+
+The public static site keeps using deterministic agronomy logic if no backend is connected.
 
 ## Google Cloud Production Mapping
 

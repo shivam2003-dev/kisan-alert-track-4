@@ -25,8 +25,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate static submission
-        run: npm run validate
+      - name: Validate and test static submission
+        run: npm test
 
   deploy:
     needs: validate

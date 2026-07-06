@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kisan Alert | RSK Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">KA</span><span><strong>Kisan Alert</strong><small>RSK dashboard</small></span></a>
+      <nav><a href="farmer.html">Farmer</a><a href="rsk.html">RSK</a><a href="district.html">District</a><a href="implementation.html">Plan</a></nav>
+    </header>
+    <main>
+      <section class="hero compact-hero">
+        <div><p class="eyebrow">Phase 2 · Human-in-the-loop</p><h1>RSK expert queue for low-confidence AI cases.</h1><p class="lead">Experts receive crop, stage, village, soil, rainfall anomaly, wetness and model confidence in one queue.</p></div>
+      </section>
+      <section class="prototype">
+        <div class="prototype-grid">
+          <article class="panel"><p class="eyebrow">Queue</p><h3>Today’s urgent tickets</h3><div id="rskTicketList" class="ticket-list"></div></article>
+          <article class="panel"><p class="eyebrow">Expert action</p><h3>Close loop by voice</h3><div class="transcript" id="expertAction"></div><button class="button primary" id="resolveFirst" type="button">Resolve first ticket</button></article>
+          <article class="panel"><p class="eyebrow">Training data</p><h3>Feedback labels</h3><p class="callout">Each expert correction becomes a district-specific label for future model tuning.</p></article>
+          <article class="panel"><p class="eyebrow">Early warning</p><h3>Cluster signal</h3><p class="callout">If multiple tickets occur within nearby villages, district officers see a pest/stress map.</p></article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="assets/js/rsk-page.js"></script>
+  </body>
+</html>

@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-site.mjs"
+    "validate": "node scripts/validate-site.mjs",
+    "test:engine": "node scripts/test-engine.mjs",
+    "test": "npm run validate && npm run test:engine"
   }
 }

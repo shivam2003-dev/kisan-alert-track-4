@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kisan Alert | Farmer Advisory</title>
+    <meta name="description" content="End-to-end farmer advisory form for Kisan Alert." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Kisan Alert home">
+        <span class="brand-mark">KA</span>
+        <span><strong>Kisan Alert</strong><small>Farmer advisory</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="farmer.html">Farmer</a>
+        <a href="rsk.html">RSK</a>
+        <a href="district.html">District</a>
+        <a href="implementation.html">Plan</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero compact-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Phase 1 · Farmer workflow</p>
+          <h1>Advisory form for voice-first decisions.</h1>
+          <p class="lead">Enter plot details once and generate crop recommendation, dry-spell warning, SMS fallback and RSK triage on this page.</p>
+        </div>
+      </section>
+
+      <section id="prototype" class="prototype">
+        <div class="prototype-grid">
+          <section id="advisory-form" class="phone-panel" aria-label="Farmer advisory web form">
+            <div class="phone-top">
+              <div><p class="label">Farmer intake</p><h3>Voice-first advisory form</h3></div>
+              <span id="callState" class="status">Ready</span>
+            </div>
+            <form id="farmerForm" class="farmer-form">
+              <div class="form-grid">
+                <label>Farmer name<input id="farmerName" name="farmerName" value="Raju" autocomplete="name" /></label>
+                <label>Phone<input id="phone" name="phone" value="+91 90000 12345" inputmode="tel" /></label>
+                <label>Village<select id="village" name="village"><option>Kothapalli</option><option>Ramapuram</option><option>Chennapuram</option></select></label>
+                <label>Land size<input id="acres" name="acres" type="number" min="0.25" step="0.25" value="2" /></label>
+                <label>Soil nitrogen<select id="nitrogen" name="nitrogen"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+                <label>pH<input id="ph" name="ph" type="number" min="4" max="10" step="0.1" value="7.8" /></label>
+                <label>Groundwater<select id="groundwater" name="groundwater"><option value="deep">Deep / risky</option><option value="moderate">Moderate</option><option value="shallow">Available</option></select></label>
+                <label>Crop stage<select id="stage" name="stage"><option value="sowing">Sowing</option><option value="vegetative">Vegetative</option><option value="flowering">Flowering</option></select></label>
+              </div>
+              <label>Farmer voice question or crop-health note<textarea id="voiceNote" name="voiceNote" rows="3">Ee varsham lo ye pantalu veyali? Aaku pasupu kanipistundi.</textarea></label>
+              <div class="button-row">
+                <button class="button primary" type="submit">Generate advisory</button>
+                <button id="sendPhoto" class="button secondary" type="button">Attach crop-health photo</button>
+              </div>
+            </form>
+            <div id="callTranscript" class="transcript" aria-live="polite"></div>
+            <div class="sms-card"><span>SMS fallback</span><p id="smsText">Advice summary will appear here.</p></div>
+          </section>
+
+          <section id="engine" class="panel crop-engine">
+            <div class="panel-head"><div><p class="eyebrow">Crop engine</p><h3>Risk portfolio</h3></div><span class="mini-pill">Explainable</span></div>
+            <div class="input-chips"><span id="chipNitrogen">Soil N low</span><span id="chipPh">pH 7.8</span><span>Rainfall -34%</span><span id="chipGw">GW deep</span><span>MSP protected</span></div>
+            <div class="crop-list">
+              <article class="crop-row best"><b id="redScore">86</b><div><strong>Red gram</strong><span id="redReason">Safe crop</span></div></article>
+              <article class="crop-row"><b id="maizeScore">71</b><div><strong>Maize</strong><span id="maizeReason">Balanced crop</span></div></article>
+              <article class="crop-row avoid"><b id="paddyScore">38</b><div><strong>Paddy</strong><span id="paddyReason">Avoid if water risk is high</span></div></article>
+            </div>
+          </section>
+
+          <section class="panel alert-engine">
+            <div class="panel-head"><div><p class="eyebrow">Dry-spell alert</p><h3>Actionable economics</h3></div><span class="mini-pill danger">78% risk</span></div>
+            <div class="risk-meter"><span></span></div>
+            <p class="callout" id="drySpellCopy">Submit the form to calculate dry-spell advice.</p>
+            <dl class="stats"><div><dt>Crop stage</dt><dd id="stageOut">Sowing</dd></div><div><dt>ET deficit</dt><dd>18 mm</dd></div><div><dt>Alert rule</dt><dd>2/3 signals</dd></div></dl>
+          </section>
+
+          <section id="rsk" class="panel rsk-panel">
+            <div class="panel-head"><div><p class="eyebrow">RSK triage</p><h3>Expert queue</h3></div><span id="queueCount" class="mini-pill danger">2 open</span></div>
+            <div id="ticketQueue" class="ticket-list" aria-live="polite">
+              <article class="ticket"><span>Ready</span><strong>No new crop-health attachment yet</strong><p>Use the crop-health button to create a confidence-gated RSK ticket.</p></article>
+            </div>
+            <button id="closeTicket" class="button compact" type="button">RSK closes ticket by voice</button>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
