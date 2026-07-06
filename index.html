@@ -21,9 +21,10 @@
       </a>
       <nav aria-label="Primary navigation">
         <a href="#prototype">Prototype</a>
+        <a href="#system">System</a>
         <a href="#architecture">Architecture</a>
-        <a href="#scoring">Scoring</a>
-        <a href="#submission">Submit</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#deployment">Deploy</a>
         <a class="nav-pill" href="PROJECT_WRITEUP.md">Write-up</a>
       </nav>
     </header>
@@ -53,16 +54,27 @@
         </aside>
       </section>
 
-      <section class="deliverables" aria-labelledby="deliverables-title">
+      <section id="system" class="system-section" aria-labelledby="system-title">
         <div>
-          <p class="eyebrow">What you hand in</p>
-          <h2 id="deliverables-title">Four submission artifacts, ready in this repo</h2>
+          <p class="eyebrow">Selected solution</p>
+          <h2 id="system-title">A complete field-to-RSK operating system</h2>
         </div>
-        <div class="deliverable-grid">
-          <article><span>01</span><h3>Working prototype</h3><p>Interactive IVR, crop engine, dry-spell alert, diagnosis triage and RSK loop.</p></article>
-          <article><span>02</span><h3>Code repository</h3><p>Public GitHub repo with README, static app and Actions deployment workflow.</p></article>
-          <article><span>03</span><h3>Pitch deck</h3><p>A slide-by-slide narrative in <a href="PITCH_DECK.md">PITCH_DECK.md</a>.</p></article>
-          <article><span>04</span><h3>Project write-up</h3><p>Problem, solution, tools, data and architecture in <a href="PROJECT_WRITEUP.md">PROJECT_WRITEUP.md</a>.</p></article>
+        <div class="system-grid">
+          <article>
+            <span>Farmer access</span>
+            <h3>Missed call, IVR, SMS and WhatsApp voice</h3>
+            <p>No app dependency. A farmer can call, use a neighbor's smartphone, or ask an RSK operator to log the case.</p>
+          </article>
+          <article>
+            <span>Agronomy brain</span>
+            <h3>Crop portfolio + water-risk engine</h3>
+            <p>Ranks safe, balanced and high-return crops using soil, satellite, rainfall, groundwater and market signals.</p>
+          </article>
+          <article>
+            <span>RSK operations</span>
+            <h3>Expert queue and district early warning</h3>
+            <p>Low-confidence photo/voice cases go to RSK staff with plot history, then return as voice advice and training labels.</p>
+          </article>
         </div>
       </section>
 
@@ -181,32 +193,46 @@
         </div>
       </section>
 
-      <section id="scoring" class="scoring">
+      <section id="implementation" class="implementation">
         <div class="section-head">
-          <p class="eyebrow">How judges score it</p>
-          <h2>Evaluation alignment</h2>
+          <p class="eyebrow">Production implementation</p>
+          <h2>From prototype to one-district pilot</h2>
         </div>
-        <div class="score-list">
-          <article><b>20%</b><div><strong>Problem-solution fit</strong><p>Directly maps to crop recommendation, dry-spell alerting, and RSK-linked crop-health logging.</p></div></article>
-          <article><b>25%</b><div><strong>AI / technical execution</strong><p>Real scoring logic, satellite evidence, ASR/TTS flow, confidence gate and expert feedback loop.</p></div></article>
-          <article><b>25%</b><div><strong>Deployability & scalability</strong><p>Feature-phone first, district pilot architecture, Google Cloud services, CI/CD Pages deployment.</p></div></article>
-          <article><b>15%</b><div><strong>Inclusivity & accessibility</strong><p>IVR, missed call, SMS, Telugu/Hindi templates, dialect phrase handling and no smartphone requirement.</p></div></article>
-          <article><b>10%</b><div><strong>Impact potential</strong><p>Protects seed cost, irrigation, pesticide use, and early pest response for small farmers.</p></div></article>
-          <article><b>5%</b><div><strong>Presentation & clarity</strong><p>Three-minute demo, concrete docs, pitch deck outline, architecture diagram and judge Q&A.</p></div></article>
+        <div class="implementation-grid">
+          <article>
+            <span>Week 1</span>
+            <h3>District data bootstrap</h3>
+            <p>Load village boundaries, Soil Health Card records, crop calendars, RSK roster, IMD/CHIRPS history and Agmarknet/MSP baselines.</p>
+          </article>
+          <article>
+            <span>Week 2</span>
+            <h3>Voice channel integration</h3>
+            <p>Connect Exotel/Twilio missed-call IVR, SMS templates, Bhashini/AI4Bharat ASR/TTS and dialect phrase dictionaries.</p>
+          </article>
+          <article>
+            <span>Week 3</span>
+            <h3>Remote sensing pipeline</h3>
+            <p>Generate village/plot wetness, NDVI/NDWI and rainfall anomaly features from Sentinel-1, Sentinel-2 and CHIRPS.</p>
+          </article>
+          <article>
+            <span>Week 4</span>
+            <h3>RSK closed-loop pilot</h3>
+            <p>Train RSK users, start confidence-gated tickets, track callback completion and publish district pest/stress heatmaps.</p>
+          </article>
         </div>
       </section>
 
-      <section id="submission" class="submission">
+      <section id="deployment" class="deployment">
         <div class="section-head">
-          <p class="eyebrow">Submission package</p>
-          <h2>Everything needed for hand-in</h2>
+          <p class="eyebrow">Deployment package</p>
+          <h2>Repository, docs and CI/CD are live</h2>
         </div>
-        <div class="submission-grid">
-          <a href="README.md"><span>README</span><strong>Runbook and repo guide</strong></a>
-          <a href="SOLUTION.md"><span>Solution</span><strong>Full technical blueprint</strong></a>
-          <a href="PROJECT_WRITEUP.md"><span>Write-up</span><strong>Problem, tools, data, architecture</strong></a>
-          <a href="PITCH_DECK.md"><span>Pitch deck</span><strong>Slide-by-slide judge story</strong></a>
-          <a href="assets/architecture.svg"><span>Diagram</span><strong>Architecture SVG</strong></a>
+        <div class="deployment-grid">
+          <a href="README.md"><span>Runbook</span><strong>Local run, demo flow and cloud mapping</strong></a>
+          <a href="SOLUTION.md"><span>Blueprint</span><strong>Crop engine, alerts, diagnosis and RSK loop</strong></a>
+          <a href="PROJECT_WRITEUP.md"><span>Write-up</span><strong>Problem, data, tools and pilot plan</strong></a>
+          <a href="assets/architecture.svg"><span>Architecture</span><strong>Google Cloud deployable system diagram</strong></a>
+          <a href="https://github.com/shivam2003-dev/kisan-alert-track-4/actions"><span>CI/CD</span><strong>GitHub Actions Pages deployment</strong></a>
         </div>
       </section>
     </main>

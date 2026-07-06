@@ -1,6 +1,6 @@
 # Kisan Alert
 
-Voice-first crop, water, dry-spell and RSK advisory prototype for Code for Communities Track 4.
+Selected-project implementation package for a voice-first crop, water, dry-spell and RSK advisory system.
 
 Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 
@@ -9,7 +9,6 @@ Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 - Working static prototype: `index.html`, `styles.css`, `app.js`
 - Full solution blueprint: `SOLUTION.md`
 - Project write-up: `PROJECT_WRITEUP.md`
-- Pitch deck outline: `PITCH_DECK.md`
 - Architecture diagram: `assets/architecture.svg`
 - GitHub Actions Pages deployment: `.github/workflows/pages.yml`
 
@@ -33,6 +32,14 @@ http://localhost:4174
 4. Click `Log yellow-leaf photo`.
 5. Watch the low-confidence case become an RSK ticket.
 6. Click `RSK closes ticket by voice`.
+
+## What The Live Site Shows
+
+- Farmer access through missed call, IVR, SMS and WhatsApp voice.
+- Crop portfolio recommendation using soil, rainfall, groundwater, satellite and price signals.
+- Crop-stage dry-spell advisory with rupee impact.
+- Low-confidence crop-health triage to RSK experts.
+- One-district implementation plan and Google Cloud deployment architecture.
 
 ## Deployment
 
