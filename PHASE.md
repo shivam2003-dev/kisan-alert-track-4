@@ -48,26 +48,40 @@ Acceptance checks:
 
 ## Phase 3 - Real Integrations
 
-Status: next.
+Status: implemented.
 
 Scope:
 
-- Exotel/Twilio IVR webhook.
-- Bhashini or AI4Bharat ASR/TTS.
-- Google Earth Engine Sentinel-1/Sentinel-2 feature generation.
-- Cloud SQL/PostGIS for farmers, plots and tickets.
-- Pub/Sub for alerts and RSK ticket events.
-- RSK authentication and role-based dashboard.
+- Exotel/Twilio-style IVR webhook in `server/ivr-webhook.mjs`.
+- Bhashini or AI4Bharat slot and voice-response adapter in `server/integrations/language-adapter.mjs`.
+- Google Earth Engine/Sentinel feature contract in `server/integrations/satellite-adapter.mjs`.
+- Cloud SQL/PostGIS schema in `server/schema.sql`.
+- Pub/Sub-style event contracts in `server/integrations/event-bus.mjs` and `server/pubsub-worker.mjs`.
+- Integration console in `integrations.html`.
+- Server-side AI proxy pattern in `server/ai-proxy.mjs`.
+
+Acceptance checks:
+
+- Integration console renders IVR, language, satellite and event contracts.
+- Webhook response returns voice text, SMS and event routes.
+- Event bus routes advisory, ticket and broadcast events.
+- No token is exposed in frontend code.
 
 ## Phase 4 - Pilot Readiness
 
-Status: next.
+Status: implemented.
 
 Scope:
 
-- FPO onboarding.
-- RSK training flow.
-- Farmer consent and data retention rules.
-- District monitoring dashboard.
-- Agronomist review of crop-stage rules and alert thresholds.
-- Pilot metrics: seed-risk savings, advisory delivery rate, RSK closure time and false-alert rate.
+- FPO onboarding scope in `data/pilot-config.json`.
+- Pilot readiness page in `pilot.html`.
+- RSK training modules in `assets/js/pilot-config.js`.
+- Farmer consent and data retention checklist in the pilot page.
+- District monitoring targets: delivery rate, RSK closure time, false-alert rate and seed-risk savings.
+- Escalation rule for 5 similar low-confidence tickets within 5 km in 48 hours.
+
+Acceptance checks:
+
+- Pilot page renders scope, consent, training and monitoring sections.
+- Pilot configuration contains district, RSKs, crops, languages and target metrics.
+- Static validation covers all public pages.

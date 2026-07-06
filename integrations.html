@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kisan Alert | Integration Console</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">KA</span><span><strong>Kisan Alert</strong><small>Integration console</small></span></a>
+      <nav><a href="farmer.html">Farmer</a><a href="rsk.html">RSK</a><a href="district.html">District</a><a href="integrations.html">Integrations</a><a href="pilot.html">Pilot</a><a href="implementation.html">Plan</a></nav>
+    </header>
+    <main>
+      <section class="hero compact-hero">
+        <div><p class="eyebrow">Phase 3 · Enterprise integrations</p><h1>Production adapters without exposing secrets.</h1><p class="lead">Contracts for IVR, Indic language, satellite features, eventing, Cloud SQL and server-side AI enrichment.</p></div>
+      </section>
+      <section class="prototype">
+        <div class="prototype-grid">
+          <article class="panel"><p class="eyebrow">IVR webhook</p><h3>Missed-call to advisory</h3><p class="callout">Server endpoint accepts caller, village, stage and transcript, then returns voice text and SMS copy.</p><pre class="code-block" id="ivrContract"></pre></article>
+          <article class="panel"><p class="eyebrow">Language</p><h3>Bhashini / AI4Bharat adapter</h3><p class="callout">ASR extracts village, crop, symptom and urgency. TTS returns Telugu/Hindi advisory audio in production.</p><pre class="code-block" id="languageContract"></pre></article>
+          <article class="panel"><p class="eyebrow">Satellite</p><h3>Earth Engine feature contract</h3><p class="callout">Sentinel-1 wetness, Sentinel-2 NDVI/NDWI and CHIRPS anomaly become village/plot features.</p><pre class="code-block" id="satelliteContract"></pre></article>
+          <article class="panel"><p class="eyebrow">Events</p><h3>Pub/Sub + Cloud SQL/PostGIS</h3><p class="callout">Advisories and tickets are evented so SMS, RSK queues and heatmaps remain decoupled.</p><pre class="code-block" id="eventContract"></pre></article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="assets/js/integrations-page.js"></script>
+  </body>
+</html>

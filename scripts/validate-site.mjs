@@ -5,6 +5,8 @@ const requiredFiles = [
   "farmer.html",
   "rsk.html",
   "district.html",
+  "integrations.html",
+  "pilot.html",
   "implementation.html",
   "styles.css",
   "app.js",
@@ -18,7 +20,18 @@ const requiredFiles = [
   "assets/js/ai-client.js",
   "assets/js/rsk-page.js",
   "assets/js/district-page.js",
+  "assets/js/integration-contracts.js",
+  "assets/js/integrations-page.js",
+  "assets/js/pilot-config.js",
+  "assets/js/pilot-page.js",
   "server/ai-proxy.mjs",
+  "server/ivr-webhook.mjs",
+  "server/pubsub-worker.mjs",
+  "server/schema.sql",
+  "server/integrations/language-adapter.mjs",
+  "server/integrations/satellite-adapter.mjs",
+  "server/integrations/event-bus.mjs",
+  "data/pilot-config.json",
   ".env.example",
 ];
 
@@ -27,14 +40,16 @@ if (missing.length) {
   throw new Error(`Missing required files: ${missing.join(", ")}`);
 }
 
-const pages = ["index.html", "farmer.html", "rsk.html", "district.html", "implementation.html"];
+const pages = ["index.html", "farmer.html", "rsk.html", "district.html", "integrations.html", "pilot.html", "implementation.html"];
 const pageHtml = Object.fromEntries(pages.map((page) => [page, readFileSync(page, "utf8")]));
 const requiredText = {
   "index.html": ["Kisan Alert", "A complete field-to-RSK operating system", "All demo actions stay on this page"],
   "farmer.html": ["Farmer advisory", "Generate advisory", "Attach crop-health photo"],
   "rsk.html": ["RSK expert queue", "Resolve first ticket"],
   "district.html": ["District Intelligence", "Village risk"],
-  "implementation.html": ["Phase 1 and 2 are implemented here", "Phase 1", "Phase 2"],
+  "integrations.html": ["Integration Console", "Production adapters without exposing secrets", "IVR webhook"],
+  "pilot.html": ["Pilot Readiness", "Ready for a one-district RSK pilot", "Consent and data"],
+  "implementation.html": ["All phases are implemented here", "Phase 1", "Phase 4"],
 };
 
 for (const [page, texts] of Object.entries(requiredText)) {

@@ -8,9 +8,13 @@ Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 
 - Working static web-form prototype: `index.html`, `styles.css`, `app.js`
 - Multi-page product: `farmer.html`, `rsk.html`, `district.html`, `implementation.html`
+- Enterprise pages: `integrations.html`, `pilot.html`
 - Phase roadmap: `PHASE.md`
 - Shared advisory engine: `assets/js/advisory-engine.js`
 - Optional AI proxy scaffold: `server/ai-proxy.mjs`
+- IVR webhook scaffold: `server/ivr-webhook.mjs`
+- Cloud SQL/PostGIS schema: `server/schema.sql`
+- Pilot configuration: `data/pilot-config.json`
 - Full solution blueprint: `SOLUTION.md`
 - Project write-up: `PROJECT_WRITEUP.md`
 - Architecture diagram: `assets/architecture.svg`

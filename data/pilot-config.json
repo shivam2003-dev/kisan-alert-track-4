@@ -1,0 +1,13 @@
+{
+  "district": "Anantapuramu dryland pilot",
+  "farmers": 500,
+  "rskCenters": ["Kothapalli RSK", "Ramapuram RSK", "Chennapuram RSK"],
+  "crops": ["Red gram", "Maize"],
+  "languages": ["Telugu", "Hindi"],
+  "metrics": {
+    "advisoryDeliveryTarget": 0.9,
+    "rskClosureTargetHours": 24,
+    "falseAlertMax": 0.15,
+    "seedRiskSavingsTargetInr": 950000
+  }
+}
