@@ -4,6 +4,25 @@
 
 Build the selected hackathon solution into a credible end-to-end pilot package inside this repository: multi-page web product, field advisory form, RSK expert workflow, district intelligence, AI-ready backend pattern, tests and CI/CD deployment.
 
+## Phase 0 - Research And Differentiation
+
+Status: implemented.
+
+Scope:
+
+- Research notes in `RESEARCH.md`.
+- Evidence page in `evidence.html`.
+- Remote sensing rationale for Sentinel-1 SAR plus Sentinel-2 NDVI/NDWI.
+- FAO-56 style crop-stage water requirement framing.
+- Agromet advisory adoption and trust rationale.
+- Conservative AI diagnosis claims with RSK escalation.
+
+Acceptance checks:
+
+- Evidence page is reachable through local navigation.
+- Public page has no external research redirects.
+- Research claims are mapped to clickable product features.
+
 ## Phase 1 - Farmer Advisory Product
 
 Status: implemented.
@@ -85,3 +104,21 @@ Acceptance checks:
 - Pilot page renders scope, consent, training and monitoring sections.
 - Pilot configuration contains district, RSKs, crops, languages and target metrics.
 - Static validation covers all public pages.
+
+## Phase 5 - Guided Demo Experience
+
+Status: implemented.
+
+Scope:
+
+- Reusable guided tour module in `assets/js/tour.js`.
+- First-visit tour opens automatically and can be restarted with `Start tour`.
+- Page-specific steps for farmer, RSK, district, integrations, evidence, pilot and implementation views.
+- Highlighted target elements with next, back and skip controls.
+- Tour tests in `scripts/test-tour.mjs`.
+
+Acceptance checks:
+
+- Every public page loads the guided tour.
+- Tour has at least three steps per page.
+- `npm test` validates static pages, engine logic and tour wiring.

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kisan Alert | Research Evidence</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">KA</span><span><strong>Kisan Alert</strong><small>Research evidence</small></span></a>
+      <nav><a href="farmer.html">Farmer</a><a href="rsk.html">RSK</a><a href="district.html">District</a><a href="integrations.html">Integrations</a><a href="evidence.html">Evidence</a><a href="pilot.html">Pilot</a><a href="implementation.html">Plan</a></nav>
+    </header>
+    <main>
+      <section class="hero compact-hero">
+        <div>
+          <p class="eyebrow">Research-backed product choices</p>
+          <h1>Designed from field evidence, not app assumptions.</h1>
+          <p class="lead">Kisan Alert uses satellite fusion, crop-stage water logic, agromet adoption evidence, Indic voice models and human expert validation because those are the hard parts in rural deployment.</p>
+        </div>
+      </section>
+
+      <section id="research-principles" class="evidence-band">
+        <div class="section-head">
+          <p class="eyebrow">Design principles</p>
+          <h2>What the research changes in the product</h2>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card"><strong>Use SAR in monsoon</strong><p>Optical imagery is often blocked by cloud during kharif. Sentinel-1 SAR gives wetness and crop-structure signals when Sentinel-2 is unavailable.</p></article>
+          <article class="evidence-card"><strong>Use crop-stage water rules</strong><p>Dry-spell risk is not generic. FAO-56 style ETc = ETo x Kc logic lets alerts change by sowing, vegetative and flowering stage.</p></article>
+          <article class="evidence-card"><strong>Use expert escalation</strong><p>Field-photo diagnosis is noisy. Low confidence, flowering-stage risk and clustered reports must go to RSK experts with context attached.</p></article>
+        </div>
+      </section>
+
+      <section id="evidence-stack" class="evidence-band">
+        <div class="section-head">
+          <p class="eyebrow">Evidence stack</p>
+          <h2>Five technical choices judges can defend</h2>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card"><strong>Sentinel-1 + Sentinel-2</strong><p>Fuse radar wetness with optical NDVI/NDWI. If clouds block optical images, SAR still keeps the dry-spell sentinel alive.</p></article>
+          <article class="evidence-card"><strong>Agromet adoption layer</strong><p>Advisories are more useful when they are crop-specific, timely and trusted. The app localizes advice to village, crop stage and RSK validation.</p></article>
+          <article class="evidence-card"><strong>Indic voice layer</strong><p>Bhashini and AI4Bharat capabilities are used for ASR, translation and TTS, while approved agricultural advice remains template controlled.</p></article>
+          <article class="evidence-card"><strong>Risk portfolio output</strong><p>The crop engine gives safe, balanced and avoid options so a small farmer is not pushed into one fragile recommendation.</p></article>
+          <article class="evidence-card"><strong>Two-signal alert gate</strong><p>The alert fires only when forecast deficit agrees with rainfall anomaly, satellite stress or sensor evidence, reducing false alarms.</p></article>
+          <article class="evidence-card"><strong>Closed-loop learning</strong><p>RSK corrections become district labels, making the product improve from local agronomy instead of generic model guesses.</p></article>
+        </div>
+      </section>
+
+      <section id="research-to-product" class="evidence-band">
+        <div class="section-head">
+          <p class="eyebrow">Research to product</p>
+          <h2>How evidence becomes a clickable feature</h2>
+        </div>
+        <table class="evidence-table">
+          <tbody>
+            <tr><th>Remote sensing</th><td>Multimodal crop-monitoring literature supports combining radar and optical observations. Product feature: Sentinel-style wetness board and crop scoring input.</td></tr>
+            <tr><th>Water requirement</th><td>FAO-56 provides the operational crop evapotranspiration basis. Product feature: dry-spell advice by crop stage rather than generic rain alerts.</td></tr>
+            <tr><th>Advisory adoption</th><td>India AAS studies show crop advisories can affect outcomes when farmers can access and trust them. Product feature: village-specific voice advice plus RSK approval.</td></tr>
+            <tr><th>Language access</th><td>Indic language model work enables ASR, translation and TTS across Indian languages. Product feature: Telugu/Hindi voice flow with dialect phrase handling.</td></tr>
+            <tr><th>AI safety</th><td>Field diagnosis uncertainty is handled by confidence gates. Product feature: instant advice only for high-confidence routine cases; uncertain cases become RSK tickets.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="field-risks" class="evidence-band">
+        <div class="section-head">
+          <p class="eyebrow">Honest limits</p>
+          <h2>What is feasible now vs. production</h2>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card"><strong>Hackathon build</strong><p>One district, three villages, deterministic agronomy engine, synthetic satellite features, RSK demo queue and CI-deployed static app.</p></article>
+          <article class="evidence-card"><strong>Pilot build</strong><p>Load real Soil Health Card, village boundaries, IMD/CHIRPS, Sentinel features, RSK roster, consent and IVR/SMS provider credentials server-side.</p></article>
+          <article class="evidence-card"><strong>Production guardrail</strong><p>No pesticide or fertilizer dose is sent from a low-confidence model. The RSK expert must approve high-risk diagnosis and broadcast cases.</p></article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="assets/js/tour.js"></script>
+  </body>
+</html>

@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "node scripts/validate-site.mjs",
     "test:engine": "node scripts/test-engine.mjs",
-    "test": "npm run validate && npm run test:engine"
+    "test:tour": "node scripts/test-tour.mjs",
+    "test": "npm run validate && npm run test:engine && npm run test:tour"
   }
 }
