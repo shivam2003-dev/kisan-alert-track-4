@@ -20,12 +20,11 @@
         </span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#prototype">Prototype</a>
+        <a href="#advisory-form">Web form</a>
         <a href="#system">System</a>
         <a href="#architecture">Architecture</a>
         <a href="#implementation">Implementation</a>
         <a href="#deployment">Deploy</a>
-        <a class="nav-pill" href="PROJECT_WRITEUP.md">Write-up</a>
       </nav>
     </header>
 
@@ -39,8 +38,8 @@
             and routes uncertain crop-health cases to Rythu Seva Kendras with plot evidence attached.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#prototype">Run prototype</a>
-            <a class="button secondary" href="SOLUTION.md">Read full solution</a>
+            <button class="button primary" type="button" data-scroll-target="advisory-form">Open web form</button>
+            <button class="button secondary" type="button" data-scroll-target="architecture">View architecture</button>
           </div>
         </div>
 
@@ -80,30 +79,88 @@
 
       <section id="prototype" class="prototype">
         <div class="section-head">
-          <p class="eyebrow">Working prototype</p>
-          <h2>One farmer, one plot, one end-to-end flow</h2>
+          <p class="eyebrow">End-to-end web form</p>
+          <h2>One farmer, one plot, one advisory workflow</h2>
           <p>
-            Demo district: Anantapuramu-style dryland block. Farmer: Raju, 2 acres, low nitrogen, deep groundwater,
-            red gram versus maize versus paddy decision.
+            Fill the form once. The page generates the IVR transcript, crop portfolio, dry-spell alert, SMS fallback,
+            crop-health triage and RSK queue without redirecting anywhere.
           </p>
         </div>
 
         <div class="prototype-grid">
-          <section class="phone-panel" aria-label="IVR and SMS flow">
+          <section id="advisory-form" class="phone-panel" aria-label="Farmer advisory web form">
             <div class="phone-top">
               <div>
-                <p class="label">Missed-call IVR</p>
-                <h3>Telugu crop question</h3>
+                <p class="label">Farmer intake</p>
+                <h3>Voice-first advisory form</h3>
               </div>
               <span id="callState" class="status">Ready</span>
             </div>
+
+            <form id="farmerForm" class="farmer-form">
+              <div class="form-grid">
+                <label>
+                  Farmer name
+                  <input id="farmerName" name="farmerName" value="Raju" autocomplete="name" />
+                </label>
+                <label>
+                  Phone
+                  <input id="phone" name="phone" value="+91 90000 12345" inputmode="tel" />
+                </label>
+                <label>
+                  Village
+                  <select id="village" name="village">
+                    <option>Kothapalli</option>
+                    <option>Ramapuram</option>
+                    <option>Chennapuram</option>
+                  </select>
+                </label>
+                <label>
+                  Land size
+                  <input id="acres" name="acres" type="number" min="0.25" step="0.25" value="2" />
+                </label>
+                <label>
+                  Soil nitrogen
+                  <select id="nitrogen" name="nitrogen">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </label>
+                <label>
+                  pH
+                  <input id="ph" name="ph" type="number" min="4" max="10" step="0.1" value="7.8" />
+                </label>
+                <label>
+                  Groundwater
+                  <select id="groundwater" name="groundwater">
+                    <option value="deep">Deep / risky</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="shallow">Available</option>
+                  </select>
+                </label>
+                <label>
+                  Crop stage
+                  <select id="stage" name="stage">
+                    <option value="sowing">Sowing</option>
+                    <option value="vegetative">Vegetative</option>
+                    <option value="flowering">Flowering</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Farmer voice question or crop-health note
+                <textarea id="voiceNote" name="voiceNote" rows="3">Ee varsham lo ye pantalu veyali? Aaku pasupu kanipistundi.</textarea>
+              </label>
+              <div class="button-row">
+                <button class="button primary" type="submit">Generate advisory</button>
+                <button id="sendPhoto" class="button secondary" type="button">Attach crop-health photo</button>
+              </div>
+            </form>
+
             <div id="callTranscript" class="transcript" aria-live="polite">
               <p><strong>Farmer:</strong> Ee varsham lo ye pantalu veyali?</p>
-              <p><strong>Kisan Alert:</strong> Press call back to generate plot-specific advice.</p>
-            </div>
-            <div class="button-row">
-              <button id="startCall" class="button primary" type="button">Call back farmer</button>
-              <button id="sendPhoto" class="button secondary" type="button">Log yellow-leaf photo</button>
+              <p><strong>Kisan Alert:</strong> Submit the form to generate plot-specific advice.</p>
             </div>
             <div class="sms-card">
               <span>SMS fallback</span>
@@ -132,12 +189,12 @@
               <span class="mini-pill">Explainable</span>
             </div>
             <div class="input-chips">
-              <span>Soil N low</span><span>pH 7.8</span><span>Rainfall -34%</span><span>GW deep</span><span>MSP protected</span>
+              <span id="chipNitrogen">Soil N low</span><span id="chipPh">pH 7.8</span><span>Rainfall -34%</span><span id="chipGw">GW deep</span><span>MSP protected</span>
             </div>
             <div class="crop-list">
-              <article class="crop-row best"><b>86</b><div><strong>Red gram</strong><span>Safe crop · low water demand · MSP support</span></div></article>
-              <article class="crop-row"><b>71</b><div><strong>Maize</strong><span>Balanced · sow after 10 mm effective rain</span></div></article>
-              <article class="crop-row avoid"><b>38</b><div><strong>Paddy</strong><span>Avoid · high irrigation and seed-loss risk</span></div></article>
+              <article class="crop-row best"><b id="redScore">86</b><div><strong>Red gram</strong><span id="redReason">Safe crop · low water demand · MSP support</span></div></article>
+              <article class="crop-row"><b id="maizeScore">71</b><div><strong>Maize</strong><span id="maizeReason">Balanced · sow after 10 mm effective rain</span></div></article>
+              <article class="crop-row avoid"><b id="paddyScore">38</b><div><strong>Paddy</strong><span id="paddyReason">Avoid · high irrigation and seed-loss risk</span></div></article>
             </div>
           </section>
 
@@ -154,7 +211,7 @@
               No effective rain is forecast for 7 days. Delay sowing until the next 10 mm rain event and save about Rs 3,800 in seed risk.
             </p>
             <dl class="stats">
-              <div><dt>Crop stage</dt><dd>Sowing</dd></div>
+              <div><dt>Crop stage</dt><dd id="stageOut">Sowing</dd></div>
               <div><dt>ET deficit</dt><dd>18 mm</dd></div>
               <div><dt>Alert rule</dt><dd>2/3 signals</dd></div>
             </dl>
@@ -189,7 +246,7 @@
           <article><h3>Access</h3><p>Exotel/Twilio missed call, IVR, SMS, WhatsApp voice, and RSK kiosk.</p></article>
           <article><h3>AI</h3><p>Bhashini/AI4Bharat ASR/TTS, Vertex AI/Cloud Run scoring, confidence-gated diagnosis.</p></article>
           <article><h3>Data</h3><p>Soil Health Card, IMD/CHIRPS, Sentinel-1/2 via Earth Engine, CGWB, Agmarknet, MSP.</p></article>
-          <article><h3>Ops</h3><p>Cloud SQL/PostGIS, Pub/Sub alerts, Firebase Hosting/GitHub Pages, Cloud Monitoring.</p></article>
+          <article><h3>Ops</h3><p>Cloud SQL/PostGIS, Pub/Sub alerts, static hosting, and Cloud Monitoring.</p></article>
         </div>
       </section>
 
@@ -225,21 +282,20 @@
       <section id="deployment" class="deployment">
         <div class="section-head">
           <p class="eyebrow">Deployment package</p>
-          <h2>Repository, docs and CI/CD are live</h2>
+          <h2>Everything is visible on this page</h2>
         </div>
         <div class="deployment-grid">
-          <a href="README.md"><span>Runbook</span><strong>Local run, demo flow and cloud mapping</strong></a>
-          <a href="SOLUTION.md"><span>Blueprint</span><strong>Crop engine, alerts, diagnosis and RSK loop</strong></a>
-          <a href="PROJECT_WRITEUP.md"><span>Write-up</span><strong>Problem, data, tools and pilot plan</strong></a>
-          <a href="assets/architecture.svg"><span>Architecture</span><strong>Google Cloud deployable system diagram</strong></a>
-          <a href="https://github.com/shivam2003-dev/kisan-alert-track-4/actions"><span>CI/CD</span><strong>GitHub Actions Pages deployment</strong></a>
+          <article><span>Runbook</span><strong>Use the form, generate advice, attach crop-health note, close RSK ticket.</strong></article>
+          <article><span>Blueprint</span><strong>Crop engine, dry-spell alert, diagnosis and expert loop are embedded in the UI.</strong></article>
+          <article><span>Cloud path</span><strong>Cloud Run APIs, Pub/Sub events, Cloud SQL/PostGIS and Earth Engine features.</strong></article>
+          <article><span>CI/CD</span><strong>Static site is deployed automatically by the repository workflow after each push.</strong></article>
         </div>
       </section>
     </main>
 
     <footer>
       <p>Kisan Alert · Voice-first agri intelligence for rural India</p>
-      <a href="https://github.com/shivam2003-dev/kisan-alert-track-4">GitHub repository</a>
+      <span>All demo actions stay on this page.</span>
     </footer>
 
     <script src="app.js"></script>

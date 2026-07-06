@@ -19,11 +19,12 @@ if (missing.length) {
 const html = readFileSync("index.html", "utf8");
 const requiredText = [
   "Kisan Alert",
-  "Working prototype",
+  "End-to-end web form",
+  "Generate advisory",
   "A complete field-to-RSK operating system",
   "Google Cloud deployable architecture",
   "From prototype to one-district pilot",
-  "PROJECT_WRITEUP.md",
+  "All demo actions stay on this page",
 ];
 
 for (const text of requiredText) {

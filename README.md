@@ -6,7 +6,7 @@ Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 
 ## What Is Included
 
-- Working static prototype: `index.html`, `styles.css`, `app.js`
+- Working static web-form prototype: `index.html`, `styles.css`, `app.js`
 - Full solution blueprint: `SOLUTION.md`
 - Project write-up: `PROJECT_WRITEUP.md`
 - Architecture diagram: `assets/architecture.svg`
@@ -26,20 +26,21 @@ http://localhost:4174
 
 ## Demo Flow
 
-1. Click `Call back farmer`.
-2. Watch Telugu IVR intent extraction and plot-specific crop advice.
-3. Review the satellite panel and crop portfolio score.
-4. Click `Log yellow-leaf photo`.
+1. Fill the farmer intake form.
+2. Click `Generate advisory`.
+3. Watch the IVR transcript, SMS fallback, crop scores and dry-spell advisory update on the same page.
+4. Click `Attach crop-health photo`.
 5. Watch the low-confidence case become an RSK ticket.
 6. Click `RSK closes ticket by voice`.
 
 ## What The Live Site Shows
 
-- Farmer access through missed call, IVR, SMS and WhatsApp voice.
+- Farmer access through a single web form that simulates missed call, IVR, SMS and WhatsApp voice.
 - Crop portfolio recommendation using soil, rainfall, groundwater, satellite and price signals.
 - Crop-stage dry-spell advisory with rupee impact.
 - Low-confidence crop-health triage to RSK experts.
 - One-district implementation plan and Google Cloud deployment architecture.
+- No public UI action redirects to GitHub or Markdown files; all demo actions stay in the page.
 
 ## Deployment
 
