@@ -1,0 +1,9 @@
+{
+  "name": "kisan-alert-track-4",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-site.mjs"
+  }
+}

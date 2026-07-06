@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Kisan Alert architecture</title>
+  <desc id="desc">Voice, SMS and WhatsApp channels flow into Google Cloud services, agronomy intelligence, data sources and RSK expert loop.</desc>
+  <defs>
+    <style>
+      .bg{fill:#0c1012}.box{fill:#162026;stroke:#33434b;stroke-width:2}.accent{fill:#67c27c}.gold{fill:#e4bf61}.blue{fill:#79bff2}.red{fill:#f06b5d}.text{fill:#f6f7f4;font:700 24px Inter,Arial,sans-serif}.small{fill:#aab4ad;font:500 17px Inter,Arial,sans-serif}.line{stroke:#79bff2;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10z" fill="#79bff2"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1280" height="720"/>
+  <text class="text" x="48" y="58">Kisan Alert: district pilot architecture</text>
+  <text class="small" x="48" y="88">Feature-phone first, satellite-aware, RSK validated</text>
+
+  <rect class="box" x="48" y="135" width="230" height="380" rx="14"/>
+  <text class="text" x="76" y="180">Farmer channels</text>
+  <text class="small" x="76" y="226">Missed call IVR</text>
+  <text class="small" x="76" y="260">SMS fallback</text>
+  <text class="small" x="76" y="294">WhatsApp voice/photo</text>
+  <text class="small" x="76" y="328">RSK kiosk proxy</text>
+  <circle class="accent" cx="92" cy="405" r="18"/><text class="small" x="122" y="412">Telugu + Hindi demo</text>
+
+  <rect class="box" x="355" y="92" width="260" height="500" rx="14"/>
+  <text class="text" x="386" y="138">Google Cloud core</text>
+  <text class="small" x="386" y="188">API Gateway</text>
+  <text class="small" x="386" y="224">Cloud Run: agronomy API</text>
+  <text class="small" x="386" y="260">Pub/Sub alert fanout</text>
+  <text class="small" x="386" y="296">Cloud SQL + PostGIS</text>
+  <text class="small" x="386" y="332">Cloud Storage evidence</text>
+  <text class="small" x="386" y="368">Firebase/Pages frontend</text>
+  <text class="small" x="386" y="404">Cloud Monitoring</text>
+
+  <rect class="box" x="690" y="92" width="250" height="250" rx="14"/>
+  <text class="text" x="720" y="138">AI layer</text>
+  <text class="small" x="720" y="188">Bhashini ASR/TTS</text>
+  <text class="small" x="720" y="224">AI4Bharat fallback</text>
+  <text class="small" x="720" y="260">Vertex AI diagnosis</text>
+  <text class="small" x="720" y="296">Confidence gate</text>
+
+  <rect class="box" x="690" y="386" width="250" height="206" rx="14"/>
+  <text class="text" x="720" y="432">Data fabric</text>
+  <text class="small" x="720" y="482">Earth Engine Sentinel-1/2</text>
+  <text class="small" x="720" y="518">IMD + CHIRPS rainfall</text>
+  <text class="small" x="720" y="554">SHC, CGWB, Agmarknet</text>
+
+  <rect class="box" x="1010" y="168" width="220" height="360" rx="14"/>
+  <text class="text" x="1040" y="214">RSK expert loop</text>
+  <text class="small" x="1040" y="264">Triage dashboard</text>
+  <text class="small" x="1040" y="300">Expert callback</text>
+  <text class="small" x="1040" y="336">Diagnosis labels</text>
+  <text class="small" x="1040" y="372">Pest cluster map</text>
+  <circle class="red" cx="1055" cy="438" r="18"/><text class="small" x="1085" y="445">Low-confidence cases</text>
+
+  <path class="line" d="M278 310 C315 310 320 310 355 310"/>
+  <path class="line" d="M615 230 C650 230 655 220 690 220"/>
+  <path class="line" d="M615 455 C650 455 655 488 690 488"/>
+  <path class="line" d="M940 246 C970 246 978 300 1010 300"/>
+  <path class="line" d="M1010 404 C960 455 930 502 940 520"/>
+
+  <rect x="49" y="622" width="1180" height="52" rx="12" fill="#11191e" stroke="#33434b" stroke-width="2"/>
+  <text class="small" x="76" y="655">Output: one dialect voice sentence + SMS, RSK ticket when uncertain, district pest/disease early-warning map as byproduct.</text>
+</svg>

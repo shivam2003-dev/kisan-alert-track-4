@@ -6,192 +6,214 @@
     <title>Kisan Alert | Voice-first crop and water intelligence</title>
     <meta
       name="description"
-      content="Voice-first crop, water, dry-spell and RSK advisory system for small farmers in rural India."
+      content="Kisan Alert is a voice-and-SMS agricultural intelligence prototype for Code for Communities Track 4."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#demo">
+      <a class="brand" href="#prototype" aria-label="Kisan Alert home">
         <span class="brand-mark">KA</span>
         <span>
           <strong>Kisan Alert</strong>
-          <small>Smart Water, Crop & Advisory System</small>
+          <small>Voice · Satellite · RSK</small>
         </span>
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#engine">Engine</a>
-        <a href="#rsk">RSK loop</a>
-        <a href="#build">48-hour build</a>
-        <a class="brief-link" href="SOLUTION.md">Brief</a>
+      <nav aria-label="Primary navigation">
+        <a href="#prototype">Prototype</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#scoring">Scoring</a>
+        <a href="#submission">Submit</a>
+        <a class="nav-pill" href="PROJECT_WRITEUP.md">Write-up</a>
       </nav>
     </header>
 
     <main>
-      <section id="demo" class="hero-grid">
+      <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Code for Communities · Track 4</p>
-          <h1>A 30-second dialect voice decision for each farmer's plot.</h1>
+          <h1>Smart water, crop and advisory decisions over a missed call.</h1>
           <p class="lead">
-            Kisan Alert sits on top of Soil Health Card, IMD, satellite, mandi and RSK systems. It converts them into
-            missed-call IVR, WhatsApp voice, SMS, and expert follow-up for small farmers.
+            A voice-and-SMS platform for small farmers that recommends crop portfolios, detects monsoon dry-spell risk,
+            and routes uncertain crop-health cases to Rythu Seva Kendras with plot evidence attached.
           </p>
-          <div class="channel-strip">
-            <span>Missed call</span>
-            <span>IVR</span>
-            <span>SMS fallback</span>
-            <span>WhatsApp voice</span>
-            <span>RSK kiosk</span>
-          </div>
-          <div class="actions">
-            <button id="startCall" class="button primary" type="button">Simulate Telugu IVR</button>
-            <button id="raiseTicket" class="button secondary" type="button">Send low-confidence crop log</button>
+          <div class="hero-actions">
+            <a class="button primary" href="#prototype">Run prototype</a>
+            <a class="button secondary" href="SOLUTION.md">Read full solution</a>
           </div>
         </div>
 
-        <section class="voice-console" aria-label="Voice advisory console">
-          <div class="console-head">
-            <div>
-              <p class="label">Incoming missed call</p>
-              <h2>Raju · Kothapalli · 2 acres</h2>
-            </div>
-            <span id="callState" class="status-pill">Ready</span>
-          </div>
-          <div id="callTranscript" class="transcript" aria-live="polite">
-            <p><strong>Farmer:</strong> Ee varsham lo ye pantalu veyali?</p>
-            <p><strong>Kisan Alert:</strong> Press simulate to hear the plot-specific answer.</p>
-          </div>
-          <div class="answer-box">
-            <span>Voice answer</span>
-            <p id="voiceAnswer">
-              Raju garu, wait for the next effective rain. Red gram is safer than paddy because groundwater is deep and
-              the 7-day dry-spell risk is high.
-            </p>
-          </div>
-          <div class="sms-box">
-            <span>SMS fallback</span>
-            <p id="smsText">
-              Sow 1.5 acre red gram + 0.5 acre maize after rain. Avoid paddy this week. Risk saving ~Rs 3,800.
-            </p>
-          </div>
-        </section>
+        <aside class="challenge-card" aria-label="Challenge components">
+          <p class="eyebrow">The challenge</p>
+          <ol>
+            <li><strong>Crop recommendation</strong><span>Satellite, soil, rainfall, groundwater and prices.</span></li>
+            <li><strong>Dry-spell alerts</strong><span>Localized forecast, stage water need and rupee impact.</span></li>
+            <li><strong>Photo/voice diagnosis</strong><span>AI confidence gate connected to RSK expert follow-up.</span></li>
+          </ol>
+        </aside>
       </section>
 
-      <section class="grid" aria-label="Kisan Alert operating evidence">
-        <article id="engine" class="panel crop-panel">
-          <div class="panel-head">
-            <p class="eyebrow">Crop risk portfolio</p>
-            <h2>Recommendation Engine</h2>
-          </div>
-          <div class="facts">
-            <span>Low nitrogen</span>
-            <span>pH 7.8</span>
-            <span>Deep groundwater</span>
-            <span>Rainfall -34%</span>
-          </div>
-          <div class="portfolio">
-            <div class="crop-row">
-              <b>86</b>
-              <div>
-                <strong>Red gram</strong>
-                <span>Safe crop · low water demand · MSP support</span>
-              </div>
-            </div>
-            <div class="crop-row maize">
-              <b>71</b>
-              <div>
-                <strong>Maize</strong>
-                <span>Balanced option · sow after effective rain</span>
-              </div>
-            </div>
-            <div class="crop-row avoid">
-              <b>38</b>
-              <div>
-                <strong>Paddy</strong>
-                <span>Avoid this week · water and seed-loss risk</span>
-              </div>
-            </div>
-          </div>
-        </article>
+      <section class="deliverables" aria-labelledby="deliverables-title">
+        <div>
+          <p class="eyebrow">What you hand in</p>
+          <h2 id="deliverables-title">Four submission artifacts, ready in this repo</h2>
+        </div>
+        <div class="deliverable-grid">
+          <article><span>01</span><h3>Working prototype</h3><p>Interactive IVR, crop engine, dry-spell alert, diagnosis triage and RSK loop.</p></article>
+          <article><span>02</span><h3>Code repository</h3><p>Public GitHub repo with README, static app and Actions deployment workflow.</p></article>
+          <article><span>03</span><h3>Pitch deck</h3><p>A slide-by-slide narrative in <a href="PITCH_DECK.md">PITCH_DECK.md</a>.</p></article>
+          <article><span>04</span><h3>Project write-up</h3><p>Problem, solution, tools, data and architecture in <a href="PROJECT_WRITEUP.md">PROJECT_WRITEUP.md</a>.</p></article>
+        </div>
+      </section>
 
-        <article class="panel satellite-panel">
-          <div class="panel-head">
-            <p class="eyebrow">Monsoon radar sentinel</p>
-            <h2>Satellite + Rainfall Evidence</h2>
-          </div>
-          <canvas id="satelliteCanvas" width="680" height="420" aria-label="Plot wetness and satellite evidence"></canvas>
-          <div class="legend">
-            <span><i class="low"></i>Low wetness</span>
-            <span><i class="healthy"></i>Healthy field</span>
-            <span><i class="water"></i>Water body</span>
-          </div>
-        </article>
-
-        <article class="panel alert-panel">
-          <div class="panel-head">
-            <p class="eyebrow">Dry-spell logic</p>
-            <h2>Actionable Advisory</h2>
-          </div>
-          <div class="risk-meter"><span></span></div>
-          <h3>78% dry-spell risk</h3>
+      <section id="prototype" class="prototype">
+        <div class="section-head">
+          <p class="eyebrow">Working prototype</p>
+          <h2>One farmer, one plot, one end-to-end flow</h2>
           <p>
-            No effective rain is forecast for 7 days. Delay sowing until the next 10 mm rain event to avoid seed-loss
-            risk.
+            Demo district: Anantapuramu-style dryland block. Farmer: Raju, 2 acres, low nitrogen, deep groundwater,
+            red gram versus maize versus paddy decision.
           </p>
-          <dl class="stats">
-            <div><dt>ET deficit</dt><dd>18 mm</dd></div>
-            <div><dt>Stage</dt><dd>Sowing</dd></div>
-            <div><dt>Saving</dt><dd>Rs 3,800</dd></div>
-          </dl>
-        </article>
+        </div>
 
-        <article id="rsk" class="panel rsk-panel">
-          <div class="panel-head">
-            <p class="eyebrow">Human-in-the-loop</p>
-            <h2>RSK Expert Queue</h2>
-          </div>
-          <div id="ticketQueue" class="ticket-list" aria-live="polite">
-            <div class="ticket urgent">
-              <span>Open</span>
-              <strong>Yellow leaves · Red gram · Flowering</strong>
-              <p>AI confidence 42%. Attach photo, voice transcript, rainfall, soil card, and plot history.</p>
+        <div class="prototype-grid">
+          <section class="phone-panel" aria-label="IVR and SMS flow">
+            <div class="phone-top">
+              <div>
+                <p class="label">Missed-call IVR</p>
+                <h3>Telugu crop question</h3>
+              </div>
+              <span id="callState" class="status">Ready</span>
             </div>
-            <div class="ticket">
-              <span>Cluster</span>
-              <strong>5 nearby pest reports</strong>
-              <p>Possible early warning around Kothapalli and Ramapuram within 5 km.</p>
+            <div id="callTranscript" class="transcript" aria-live="polite">
+              <p><strong>Farmer:</strong> Ee varsham lo ye pantalu veyali?</p>
+              <p><strong>Kisan Alert:</strong> Press call back to generate plot-specific advice.</p>
             </div>
-          </div>
-          <button id="closeTicket" class="button compact" type="button">RSK closes ticket</button>
-        </article>
-      </section>
+            <div class="button-row">
+              <button id="startCall" class="button primary" type="button">Call back farmer</button>
+              <button id="sendPhoto" class="button secondary" type="button">Log yellow-leaf photo</button>
+            </div>
+            <div class="sms-card">
+              <span>SMS fallback</span>
+              <p id="smsText">Advice summary will appear here for 2G and feature-phone users.</p>
+            </div>
+          </section>
 
-      <section class="section">
-        <p class="eyebrow">Designed against generic hackathon apps</p>
-        <h2>What makes it hard to copy</h2>
-        <div class="diff-grid">
-          <article><span>01</span><h3>Voice-first</h3><p>Missed call and IVR are the main path. The app is optional.</p></article>
-          <article><span>02</span><h3>Risk portfolio</h3><p>Safe, balanced, and high-return crop choices replace one naive crop answer.</p></article>
-          <article><span>03</span><h3>Sentinel-1 evidence</h3><p>SAR wetness works during monsoon cloud cover when optical NDVI fails.</p></article>
-          <article><span>04</span><h3>RSK validation</h3><p>Experts handle uncertain cases and generate district pest early warnings.</p></article>
+          <section class="panel map-panel" aria-label="Satellite evidence">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Monsoon radar sentinel</p>
+                <h3>Sentinel-1/Sentinel-2 plot evidence</h3>
+              </div>
+              <span class="mini-pill danger">Wetness low</span>
+            </div>
+            <canvas id="satelliteCanvas" width="760" height="470" aria-label="Synthetic satellite plot map"></canvas>
+            <div class="legend"><span><i class="low"></i>Low wetness</span><span><i class="healthy"></i>Healthy crop</span><span><i class="water"></i>Water body</span></div>
+          </section>
+
+          <section id="engine" class="panel crop-engine">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Smart crop engine</p>
+                <h3>Risk portfolio recommendation</h3>
+              </div>
+              <span class="mini-pill">Explainable</span>
+            </div>
+            <div class="input-chips">
+              <span>Soil N low</span><span>pH 7.8</span><span>Rainfall -34%</span><span>GW deep</span><span>MSP protected</span>
+            </div>
+            <div class="crop-list">
+              <article class="crop-row best"><b>86</b><div><strong>Red gram</strong><span>Safe crop · low water demand · MSP support</span></div></article>
+              <article class="crop-row"><b>71</b><div><strong>Maize</strong><span>Balanced · sow after 10 mm effective rain</span></div></article>
+              <article class="crop-row avoid"><b>38</b><div><strong>Paddy</strong><span>Avoid · high irrigation and seed-loss risk</span></div></article>
+            </div>
+          </section>
+
+          <section class="panel alert-engine">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Advisory and dry-spell alert</p>
+                <h3>Actionable economics</h3>
+              </div>
+              <span class="mini-pill danger">78% risk</span>
+            </div>
+            <div class="risk-meter"><span></span></div>
+            <p class="callout" id="drySpellCopy">
+              No effective rain is forecast for 7 days. Delay sowing until the next 10 mm rain event and save about Rs 3,800 in seed risk.
+            </p>
+            <dl class="stats">
+              <div><dt>Crop stage</dt><dd>Sowing</dd></div>
+              <div><dt>ET deficit</dt><dd>18 mm</dd></div>
+              <div><dt>Alert rule</dt><dd>2/3 signals</dd></div>
+            </dl>
+          </section>
+
+          <section id="rsk" class="panel rsk-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">RSK human-in-the-loop</p>
+                <h3>Expert triage queue</h3>
+              </div>
+              <span id="queueCount" class="mini-pill danger">2 open</span>
+            </div>
+            <div id="ticketQueue" class="ticket-list" aria-live="polite">
+              <article class="ticket urgent"><span>Open</span><strong>Yellow leaves · red gram · flowering</strong><p>AI confidence 42%. Cannot separate nutrient stress from early pest damage.</p></article>
+              <article class="ticket"><span>Cluster</span><strong>5 nearby yellow-leaf reports</strong><p>Possible early warning near Kothapalli and Ramapuram within 5 km.</p></article>
+            </div>
+            <button id="closeTicket" class="button compact" type="button">RSK closes ticket by voice</button>
+          </section>
         </div>
       </section>
 
-      <section id="build" class="section build-section">
-        <p class="eyebrow">48-hour build</p>
-        <h2>Prototype only what judges can touch</h2>
-        <div class="timeline">
-          <article><span>0-8h</span><h3>Seed data</h3><p>One district, three villages, paddy and red gram.</p></article>
-          <article><span>8-20h</span><h3>IVR + scoring</h3><p>Webhook, Telugu/Hindi templates, crop portfolio score.</p></article>
-          <article><span>20-36h</span><h3>RSK screen</h3><p>Ticket queue, confidence gate, satellite evidence panel.</p></article>
-          <article><span>36-48h</span><h3>Demo hardening</h3><p>Voice fallback, 3-minute script, offline-safe static site.</p></article>
+      <section id="architecture" class="architecture">
+        <div class="section-head">
+          <p class="eyebrow">Google Cloud deployable architecture</p>
+          <h2>Built for a real district pilot, not a one-off app</h2>
+        </div>
+        <div class="architecture-card">
+          <img src="assets/architecture.svg" alt="Kisan Alert architecture diagram" />
+        </div>
+        <div class="stack-grid">
+          <article><h3>Access</h3><p>Exotel/Twilio missed call, IVR, SMS, WhatsApp voice, and RSK kiosk.</p></article>
+          <article><h3>AI</h3><p>Bhashini/AI4Bharat ASR/TTS, Vertex AI/Cloud Run scoring, confidence-gated diagnosis.</p></article>
+          <article><h3>Data</h3><p>Soil Health Card, IMD/CHIRPS, Sentinel-1/2 via Earth Engine, CGWB, Agmarknet, MSP.</p></article>
+          <article><h3>Ops</h3><p>Cloud SQL/PostGIS, Pub/Sub alerts, Firebase Hosting/GitHub Pages, Cloud Monitoring.</p></article>
+        </div>
+      </section>
+
+      <section id="scoring" class="scoring">
+        <div class="section-head">
+          <p class="eyebrow">How judges score it</p>
+          <h2>Evaluation alignment</h2>
+        </div>
+        <div class="score-list">
+          <article><b>20%</b><div><strong>Problem-solution fit</strong><p>Directly maps to crop recommendation, dry-spell alerting, and RSK-linked crop-health logging.</p></div></article>
+          <article><b>25%</b><div><strong>AI / technical execution</strong><p>Real scoring logic, satellite evidence, ASR/TTS flow, confidence gate and expert feedback loop.</p></div></article>
+          <article><b>25%</b><div><strong>Deployability & scalability</strong><p>Feature-phone first, district pilot architecture, Google Cloud services, CI/CD Pages deployment.</p></div></article>
+          <article><b>15%</b><div><strong>Inclusivity & accessibility</strong><p>IVR, missed call, SMS, Telugu/Hindi templates, dialect phrase handling and no smartphone requirement.</p></div></article>
+          <article><b>10%</b><div><strong>Impact potential</strong><p>Protects seed cost, irrigation, pesticide use, and early pest response for small farmers.</p></div></article>
+          <article><b>5%</b><div><strong>Presentation & clarity</strong><p>Three-minute demo, concrete docs, pitch deck outline, architecture diagram and judge Q&A.</p></div></article>
+        </div>
+      </section>
+
+      <section id="submission" class="submission">
+        <div class="section-head">
+          <p class="eyebrow">Submission package</p>
+          <h2>Everything needed for hand-in</h2>
+        </div>
+        <div class="submission-grid">
+          <a href="README.md"><span>README</span><strong>Runbook and repo guide</strong></a>
+          <a href="SOLUTION.md"><span>Solution</span><strong>Full technical blueprint</strong></a>
+          <a href="PROJECT_WRITEUP.md"><span>Write-up</span><strong>Problem, tools, data, architecture</strong></a>
+          <a href="PITCH_DECK.md"><span>Pitch deck</span><strong>Slide-by-slide judge story</strong></a>
+          <a href="assets/architecture.svg"><span>Diagram</span><strong>Architecture SVG</strong></a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Kisan Alert · Built for Code for Communities Track 4</p>
-      <a href="SOLUTION.md">Read full technical brief</a>
+      <p>Kisan Alert · Voice-first agri intelligence for rural India</p>
+      <a href="https://github.com/shivam2003-dev/kisan-alert-track-4">GitHub repository</a>
     </footer>
 
     <script src="app.js"></script>
