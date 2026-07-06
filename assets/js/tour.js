@@ -200,6 +200,28 @@ export const tourSteps = {
       body: "The app names model limits and gives the RSK escalation path instead of overclaiming field-photo accuracy.",
     },
   ],
+  "global.html": [
+    {
+      selector: "#country-lessons",
+      title: "Global benchmark",
+      body: "This page shows which lessons Kisan Alert borrows from Kenya, Ethiopia, Africa, Israel, the Netherlands and India.",
+    },
+    {
+      selector: "#creative-layer",
+      title: "Memorable product ideas",
+      body: "These are the non-generic features: village climate twin, advice receipts, risk wallet and community proof.",
+    },
+    {
+      selector: "#future-roadmap",
+      title: "Scale roadmap",
+      body: "The plan moves from hackathon demo to district pilot, then to multi-district climate infrastructure.",
+    },
+    {
+      selector: "#systems-design",
+      title: "Adapted for India",
+      body: "The architecture keeps missed-call IVR primary, uses AI carefully and connects advice to RSK and finance workflows.",
+    },
+  ],
 };
 
 export function resolvePageKey(pathname = window.location.pathname) {
@@ -225,18 +247,7 @@ function getVisibleSteps(pageKey) {
 }
 
 function positionCard(card, target) {
-  const rect = target.getBoundingClientRect();
-  const cardRect = card.getBoundingClientRect();
-  const gap = 14;
-  const roomBelow = window.innerHeight - rect.bottom;
-  const top = roomBelow > cardRect.height + gap ? rect.bottom + gap : Math.max(16, rect.top - cardRect.height - gap);
-  const left = Math.min(
-    Math.max(16, rect.left),
-    Math.max(16, window.innerWidth - cardRect.width - 16),
-  );
-
-  card.style.top = `${top}px`;
-  card.style.left = `${left}px`;
+  card.dataset.anchoredTo = target.id || target.className || "current-section";
 }
 
 export function initTour() {
@@ -258,9 +269,14 @@ export function initTour() {
   root.innerHTML = `
     <div class="tour-scrim" aria-hidden="true"></div>
     <section class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
-      <div class="tour-progress" aria-live="polite"></div>
+      <div class="tour-topline">
+        <div class="tour-progress" aria-live="polite"></div>
+        <button class="tour-close" type="button" aria-label="Close guided tour">×</button>
+      </div>
+      <div class="tour-bar"><span></span></div>
       <h2 id="tourTitle"></h2>
       <p id="tourBody"></p>
+      <p id="tourHint" class="tour-hint"></p>
       <div class="tour-actions">
         <button class="button secondary tour-back" type="button">Back</button>
         <button class="button secondary tour-skip" type="button">Skip</button>
@@ -272,11 +288,14 @@ export function initTour() {
 
   const card = root.querySelector(".tour-card");
   const progress = root.querySelector(".tour-progress");
+  const bar = root.querySelector(".tour-bar span");
   const title = root.querySelector("#tourTitle");
   const body = root.querySelector("#tourBody");
+  const hint = root.querySelector("#tourHint");
   const back = root.querySelector(".tour-back");
   const skip = root.querySelector(".tour-skip");
   const next = root.querySelector(".tour-next");
+  const close = root.querySelector(".tour-close");
 
   function clearHighlight() {
     if (activeTarget) {
@@ -304,8 +323,12 @@ export function initTour() {
     activeTarget.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
 
     progress.textContent = `Step ${activeIndex + 1} of ${steps.length}`;
+    bar.style.width = `${Math.round(((activeIndex + 1) / steps.length) * 100)}%`;
     title.textContent = step.title;
     body.textContent = step.body;
+    hint.textContent = activeIndex === steps.length - 1
+      ? "This is the last step. Press Done to close the guide, or Back to review."
+      : "Look for the highlighted section on the page, then press the green Next button.";
     back.disabled = activeIndex === 0;
     next.textContent = activeIndex === steps.length - 1 ? "Done" : "Next";
 
@@ -336,6 +359,7 @@ export function initTour() {
     renderStep();
   });
   skip.addEventListener("click", () => closeTour(true));
+  close.addEventListener("click", () => closeTour(true));
   root.querySelector(".tour-scrim").addEventListener("click", () => closeTour(false));
   window.addEventListener("resize", () => {
     if (!root.hidden && activeTarget) positionCard(card, activeTarget);

@@ -8,7 +8,7 @@ Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
 
 - Working static web-form prototype: `index.html`, `styles.css`, `app.js`
 - Multi-page product: `farmer.html`, `rsk.html`, `district.html`, `implementation.html`
-- Enterprise pages: `integrations.html`, `evidence.html`, `pilot.html`
+- Enterprise pages: `integrations.html`, `evidence.html`, `global.html`, `pilot.html`
 - Phase roadmap: `PHASE.md`
 - Research notes: `RESEARCH.md`
 - Shared advisory engine: `assets/js/advisory-engine.js`
@@ -50,6 +50,7 @@ http://localhost:4174
 - Low-confidence crop-health triage to RSK experts.
 - Guided first-timer tour on every page for click-through exploration.
 - Research-backed evidence page mapping papers and public systems to product decisions.
+- Global playbook page showing what Kenya, Ethiopia, Africa, Israel, the Netherlands and India teach the product.
 - One-district implementation plan and Google Cloud deployment architecture.
 - No public UI action redirects to GitHub or Markdown files; all demo actions stay in the page.
 

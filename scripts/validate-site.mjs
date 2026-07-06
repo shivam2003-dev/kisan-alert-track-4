@@ -7,6 +7,7 @@ const requiredFiles = [
   "district.html",
   "integrations.html",
   "evidence.html",
+  "global.html",
   "pilot.html",
   "implementation.html",
   "styles.css",
@@ -44,7 +45,7 @@ if (missing.length) {
   throw new Error(`Missing required files: ${missing.join(", ")}`);
 }
 
-const pages = ["index.html", "farmer.html", "rsk.html", "district.html", "integrations.html", "evidence.html", "pilot.html", "implementation.html"];
+const pages = ["index.html", "farmer.html", "rsk.html", "district.html", "integrations.html", "evidence.html", "global.html", "pilot.html", "implementation.html"];
 const pageHtml = Object.fromEntries(pages.map((page) => [page, readFileSync(page, "utf8")]));
 const requiredText = {
   "index.html": ["Kisan Alert", "A complete field-to-RSK operating system", "All demo actions stay on this page"],
@@ -53,6 +54,7 @@ const requiredText = {
   "district.html": ["District Intelligence", "Village risk"],
   "integrations.html": ["Integration Console", "Production adapters without exposing secrets", "IVR webhook"],
   "evidence.html": ["Research evidence", "Designed from field evidence", "How evidence becomes a clickable feature"],
+  "global.html": ["Global Playbook", "Borrow what worked globally", "From hackathon prototype to climate infrastructure"],
   "pilot.html": ["Pilot Readiness", "Ready for a one-district RSK pilot", "Consent and data"],
   "implementation.html": ["All phases are implemented here", "Phase 1", "Phase 4"],
 };

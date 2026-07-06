@@ -9,6 +9,7 @@ const pages = [
   "district.html",
   "integrations.html",
   "evidence.html",
+  "global.html",
   "pilot.html",
   "implementation.html",
 ];

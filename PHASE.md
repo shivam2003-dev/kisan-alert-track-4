@@ -12,6 +12,7 @@ Scope:
 
 - Research notes in `RESEARCH.md`.
 - Evidence page in `evidence.html`.
+- Global playbook page in `global.html`.
 - Remote sensing rationale for Sentinel-1 SAR plus Sentinel-2 NDVI/NDWI.
 - FAO-56 style crop-stage water requirement framing.
 - Agromet advisory adoption and trust rationale.
@@ -22,6 +23,7 @@ Acceptance checks:
 - Evidence page is reachable through local navigation.
 - Public page has no external research redirects.
 - Research claims are mapped to clickable product features.
+- Global country lessons are translated into concrete Kisan Alert features.
 
 ## Phase 1 - Farmer Advisory Product
 
