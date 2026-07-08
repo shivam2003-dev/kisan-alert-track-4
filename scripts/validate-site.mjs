@@ -14,7 +14,7 @@ const requiredFiles = [
   "app.js",
   "PHASE.md",
   "README.md",
-  "SOLUTION.md",
+  "solution.md",
   "RESEARCH.md",
   "PROJECT_WRITEUP.md",
   "PITCH_DECK.md",
