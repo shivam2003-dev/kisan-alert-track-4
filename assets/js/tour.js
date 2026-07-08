@@ -204,7 +204,7 @@ export const tourSteps = {
     {
       selector: "#country-lessons",
       title: "Global benchmark",
-      body: "This page shows which lessons Kisan Alert borrows from Kenya, Ethiopia, Africa, Israel, the Netherlands and India.",
+      body: "This page shows which lessons KisanVaani borrows from Kenya, Ethiopia, Africa, Israel, the Netherlands and India.",
     },
     {
       selector: "#creative-layer",

@@ -1,8 +1,8 @@
-# Kisan Alert
+# KisanVaani
 
 Selected-project implementation package for a voice-first crop, water, dry-spell and RSK advisory system.
 
-Live site: https://shivam2003-dev.github.io/kisan-alert-track-4/
+Live site: https://kissanvani.shivam2003.com/
 
 ## What Is Included
 

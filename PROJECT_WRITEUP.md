@@ -1,4 +1,4 @@
-# Kisan Alert Project Write-up
+# KisanVaani Project Write-up
 
 ## Problem
 
@@ -6,7 +6,7 @@ Small and marginal farmers face crop failure because sowing and input decisions 
 
 ## Solution
 
-Kisan Alert is a voice-and-SMS agricultural intelligence platform for Indic languages. It gives each farmer a short, plot-specific answer:
+KisanVaani is a voice-and-SMS agricultural intelligence platform for Indic languages. It gives each farmer a short, plot-specific answer:
 
 > "Avoid paddy this week. After the next 10 mm rain, sow 1.5 acres red gram and 0.5 acre maize. Expected seed-risk saving: Rs 3,800."
 
@@ -18,12 +18,12 @@ The platform has three connected components:
 
 ## Differentiation
 
-Kisan Alert is not another Kisan Suvidha clone or KCC replacement. It is a personalization and triage layer on top of public systems:
+KisanVaani is not another Kisan Suvidha clone or KCC replacement. It is a personalization and triage layer on top of public systems:
 
 - Kisan Suvidha gives useful information.
 - KCC answers farmer questions.
 - mKisan broadcasts advisories.
-- Kisan Alert combines those rails with plot-specific evidence, voice-first access, satellite signals and RSK validation.
+- KisanVaani combines those rails with plot-specific evidence, voice-first access, satellite signals and RSK validation.
 
 ## Tools And Data
 
@@ -40,7 +40,7 @@ Kisan Alert is not another Kisan Suvidha clone or KCC replacement. It is a perso
 
 ## Architecture
 
-![Kisan Alert architecture](assets/architecture.svg)
+![KisanVaani architecture](assets/architecture.svg)
 
 ## AI / Technical Execution
 

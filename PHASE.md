@@ -1,4 +1,4 @@
-# Kisan Alert Phase Plan
+# KisanVaani Phase Plan
 
 ## Current Objective
 
@@ -23,7 +23,7 @@ Acceptance checks:
 - Evidence page is reachable through local navigation.
 - Public page has no external research redirects.
 - Research claims are mapped to clickable product features.
-- Global country lessons are translated into concrete Kisan Alert features.
+- Global country lessons are translated into concrete KisanVaani features.
 
 ## Phase 1 - Farmer Advisory Product
 

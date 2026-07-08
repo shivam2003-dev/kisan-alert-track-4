@@ -1,8 +1,8 @@
-# Kisan Alert Pitch Deck
+# KisanVaani Pitch Deck
 
 ## Slide 1 - Title
 
-Kisan Alert: Smart Water, Crop & Advisory System  
+KisanVaani: Smart Water, Crop & Advisory System  
 Voice-first agricultural intelligence for small and marginal farmers.
 
 ## Slide 2 - Problem
@@ -11,11 +11,11 @@ Farmers lose money because crop choices and input timing are based on habit, hea
 
 ## Slide 3 - Why Existing Tools Are Not Enough
 
-Kisan Suvidha, mKisan and KCC are useful, but they are generic information, broadcast or helpline systems. Kisan Alert adds plot-specific personalization, satellite evidence and RSK expert triage.
+Kisan Suvidha, mKisan and KCC are useful, but they are generic information, broadcast or helpline systems. KisanVaani adds plot-specific personalization, satellite evidence and RSK expert triage.
 
 ## Slide 4 - Product
 
-Farmer gives a missed call or WhatsApp voice note. Kisan Alert replies in the farmer's language with a 30-second crop/water decision and SMS backup.
+Farmer gives a missed call or WhatsApp voice note. KisanVaani replies in the farmer's language with a 30-second crop/water decision and SMS backup.
 
 ## Slide 5 - Core Innovation
 

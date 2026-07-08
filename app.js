@@ -66,7 +66,7 @@ function generateAdvisory(data) {
     <p><strong>Farmer:</strong> ${advisory.data.voiceNote}</p>
     <p><strong>ASR slots:</strong> ${advisory.data.village} · ${advisory.data.acres} acres · ${advisory.stageLabel} · nitrogen ${advisory.data.nitrogen} · groundwater ${advisory.gwLabel}.</p>
     <p><strong>Engine:</strong> Soil Health Card + Sentinel-1 wetness + 7-day forecast + MSP price risk.</p>
-    <p><strong>Kisan Alert:</strong> ${advisory.recommendation}</p>
+    <p><strong>KisanVaani:</strong> ${advisory.recommendation}</p>
   `;
   smsText.textContent = advisory.sms;
 

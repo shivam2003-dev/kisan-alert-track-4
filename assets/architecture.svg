@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
-  <title id="title">Kisan Alert architecture</title>
+  <title id="title">KisanVaani architecture</title>
   <desc id="desc">Voice, SMS and WhatsApp channels flow into Google Cloud services, agronomy intelligence, data sources and RSK expert loop.</desc>
   <defs>
     <style>
@@ -10,7 +10,7 @@
     </marker>
   </defs>
   <rect class="bg" width="1280" height="720"/>
-  <text class="text" x="48" y="58">Kisan Alert: district pilot architecture</text>
+  <text class="text" x="48" y="58">KisanVaani: district pilot architecture</text>
   <text class="small" x="48" y="88">Feature-phone first, satellite-aware, RSK validated</text>
 
   <rect class="box" x="48" y="135" width="230" height="380" rx="14"/>

@@ -1,4 +1,4 @@
-# Kisan Alert Research Notes
+# KisanVaani Research Notes
 
 This project uses research and public-system evidence to avoid a generic crop-app design.
 
@@ -55,16 +55,16 @@ This project uses research and public-system evidence to avoid a generic crop-ap
 - UNDP smallholder precision agriculture report: farm-level data can support advisory, supply chains, policy planning and index insurance.
   URL: https://www.undp.org/sites/g/files/zskgke326/files/2021-10/UNDP-Precision-Agriculture-for-Smallholder-Farmers.pdf
 
-## Global Lessons Converted Into Kisan Alert
+## Global Lessons Converted Into KisanVaani
 
-| Global pattern | What it means | Kisan Alert adaptation |
+| Global pattern | What it means | KisanVaani adaptation |
 | --- | --- | --- |
 | Kenya and Rwanda SMS advisory | Phone channels scale cheaply, but advice must be specific enough to change behavior. | Missed-call IVR plus SMS fallback, with village, crop stage, rupee impact and two-signal alert gate. |
 | Ethiopia video extension | Farmers trust demonstrations and local intermediaries more than abstract messages. | RSK-approved cases become local voice stories and reusable advisory templates. |
 | PlantVillage Nuru | AI diagnosis is useful when the crop, disease set and image context are bounded. | AI gives triage buckets and confidence; uncertain or high-risk cases go to RSK. |
 | Israel precision irrigation | Water efficiency comes from timing, placement and measured dose. | FAO-56-inspired stage guidance says delay sowing, protectively irrigate or delay urea rather than "rain/no rain." |
 | Netherlands agri ecosystem | High performance comes from connected policy, research, logistics and feedback loops. | RSKs, FPOs, IMD, SHC, mandi data, insurance and district dashboards form one operating system. |
-| India public stack | Existing public systems already hold weather, soil, market and helpline capabilities. | Kisan Alert does not replace them; it personalizes and closes the action loop around them. |
+| India public stack | Existing public systems already hold weather, soil, market and helpline capabilities. | KisanVaani does not replace them; it personalizes and closes the action loop around them. |
 
 ## Future Product Plan
 

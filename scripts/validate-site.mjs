@@ -48,7 +48,7 @@ if (missing.length) {
 const pages = ["index.html", "farmer.html", "rsk.html", "district.html", "integrations.html", "evidence.html", "global.html", "pilot.html", "implementation.html"];
 const pageHtml = Object.fromEntries(pages.map((page) => [page, readFileSync(page, "utf8")]));
 const requiredText = {
-  "index.html": ["Kisan Alert", "A complete field-to-RSK operating system", "All demo actions stay on this page"],
+  "index.html": ["KisanVaani", "A complete field-to-RSK operating system", "All demo actions stay on this page"],
   "farmer.html": ["Farmer advisory", "Generate advisory", "Attach crop-health photo"],
   "rsk.html": ["RSK expert queue", "Resolve first ticket"],
   "district.html": ["District Intelligence", "Village risk"],

@@ -1,4 +1,4 @@
-# Kisan Alert - Smart Water, Crop & Advisory System
+# KisanVaani - Smart Water, Crop & Advisory System
 
 ## What Every Team Will Build
 
@@ -8,7 +8,7 @@
 4. A multilingual mobile app with a microphone button.
 5. A generic officer dashboard with farmers, crops, mandi prices, and tickets.
 
-Kisan Alert is designed against these defaults on four axes:
+KisanVaani is designed against these defaults on four axes:
 
 - Voice-first access instead of app-first access.
 - Plot-stage advice instead of district-level generic advice.
@@ -19,10 +19,10 @@ Kisan Alert is designed against these defaults on four axes:
 
 Kisan Suvidha already provides weather, market prices, plant protection, agro advisories, Soil Health Card links, and related services. mKisan already sends text and voice advisories. Kisan Call Centres already answer farmer questions in local languages. Soil Health Card already gives nutrient status and fertilizer recommendations.
 
-So Kisan Alert should not be pitched as another agriculture information app. It is the missing personalization and triage layer on top of these systems:
+So KisanVaani should not be pitched as another agriculture information app. It is the missing personalization and triage layer on top of these systems:
 
 - KCC tells a farmer what is generally right.
-- Kisan Alert tells the farmer what is right for this plot, this crop stage, this week.
+- KisanVaani tells the farmer what is right for this plot, this crop stage, this week.
 - RSK experts validate uncertain or high-risk cases and close the loop by voice.
 
 ## Novel Concepts
@@ -44,7 +44,7 @@ Unfair advantage: judges will remember "crop choice like a financial portfolio,"
 
 Use Sentinel-1 SAR because it can see through monsoon clouds, Sentinel-2 NDVI/NDWI when clear, CHIRPS/IMD rainfall history, and forecast rainfall probability to detect sowing failure, crop stress, and dry spells before damage is visible.
 
-Unfair advantage: most teams will use only weather APIs; Kisan Alert shows satellite evidence.
+Unfair advantage: most teams will use only weather APIs; KisanVaani shows satellite evidence.
 
 ### 3. RSK Triage Network
 
@@ -54,11 +54,11 @@ Unfair advantage: the byproduct is a district pest/disease early-warning map gen
 
 ## Chosen Blueprint
 
-Kisan Alert combines the crop risk portfolio, monsoon sentinel, and RSK loop into one voice-first system.
+KisanVaani combines the crop risk portfolio, monsoon sentinel, and RSK loop into one voice-first system.
 
 One-line product:
 
-> Kisan Alert turns government data, satellites, and RSK experts into a 30-second dialect voice decision for each farmer's plot.
+> KisanVaani turns government data, satellites, and RSK experts into a 30-second dialect voice decision for each farmer's plot.
 
 ## Crop Recommendation Engine
 
@@ -264,11 +264,11 @@ The farmer does not need to install an app or own a smartphone.
 
 ### Why will a farmer trust this over the local input dealer?
 
-Because the advice names the farmer's village, crop stage, soil issue, rainfall risk, and rupee impact, and carries RSK/KVK validation. Dealers sell inputs. Kisan Alert can also say, "do not buy seed this week" or "do not spray pesticide yet."
+Because the advice names the farmer's village, crop stage, soil issue, rainfall risk, and rupee impact, and carries RSK/KVK validation. Dealers sell inputs. KisanVaani can also say, "do not buy seed this week" or "do not spray pesticide yet."
 
 ### How is this different from Kisan Suvidha or KCC?
 
-Kisan Suvidha is an information app and KCC is a human helpline. Kisan Alert is a personalization and triage layer that uses Soil Health Card, IMD, satellite, mandi, and crop-stage data to generate plot-specific advice, then escalates hard cases to RSK experts.
+Kisan Suvidha is an information app and KCC is a human helpline. KisanVaani is a personalization and triage layer that uses Soil Health Card, IMD, satellite, mandi, and crop-stage data to generate plot-specific advice, then escalates hard cases to RSK experts.
 
 ### Is this feasible in 48 hours?
 
