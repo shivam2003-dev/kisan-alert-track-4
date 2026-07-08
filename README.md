@@ -16,7 +16,7 @@ Live site: https://kissanvani.shivam2003.com/
 - IVR webhook scaffold: `server/ivr-webhook.mjs`
 - Cloud SQL/PostGIS schema: `server/schema.sql`
 - Pilot configuration: `data/pilot-config.json`
-- Full solution blueprint: `SOLUTION.md`
+- Full solution blueprint: `solution.md`
 - Project write-up: `PROJECT_WRITEUP.md`
 - Architecture diagram: `assets/architecture.svg`
 - GitHub Actions Pages deployment: `.github/workflows/pages.yml`
